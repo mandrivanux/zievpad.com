@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>exam</title>
+  <link rel="icon" type="image/png" href="Zvp.jpeg">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ededed;
+      font-family: Arial, sans-serif;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+
+    nav {
+      background-color: #ededed;
+      transition: background-color 0.5s;
+      height: 60px;
+      margin: 0%;
+    }
+
+    .navbar-marque {
+      height: 10px;
+      color: #333;
+    }
+
+    .menu {
+      background-color: #ededed;
+      float: right;
+      height: 30px;
+      width: 100px;
+      margin: 15px 20px 0 0;
+      color: #333;
+      border: none;
+      font-weight: 600;
+      transition: 0.2s ease-in;
+      border-radius: 10px 10px 10px 10px;
+    }
+
+    .menu:hover {
+      background-color: #2a6ba9;
+      transition: 0.2s ease-in;
+      color: #ededed;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      /*desktop*/
+      background-color: #ededed;
+      transition: 0.5s;
+      font-weight: 600;
+      display: flex;
+      height: 60px;
+      justify-content: right;
+      min-width: 2000px;
+      float: right;
+      position: fixed;
+      top: 0;
+      right: 0;
+      color: #333;
+      z-index: 5;
+    }
+
+    .sidebarcontent {
+      flex: 1;
+      padding: 0px;
+    }
+    
+    .sidebar-note-btn {
+        color: #2a6ba9;
+    }
+
+
+    
+        .sidebar-p {
+      margin-left: 10px;
+      cursor: pointer;
+      margin-top: 23px;
+    }
+    
+    #privacy {
+        margin-right: 100px;
+    }
+    
+    .sidebar-p:active {
+      background-color: #2a6ba9a3;
+    }
+
+    .FaQ {
+      background-color: #ededed;
+      border-radius: 5px;
+      font-weight: 900;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+      float: right;
+      height: 40px;
+      right: 60px;
+      border: none;
+      margin-top: -50px;
+      outline: none;
+      position: fixed;
+      transition: 0.5s;
+      /* DESKTOP */
+      width: 40px;
+    }
+
+    .FaQ:hover {
+      background-color: #ddd;
+    }
+
+    .FaQ:active {
+      background-color: #ddd;
+      border: 2px solid #2a6ba9;
+      color: #2a6ba9;
+    }
+
+    .toggle-btn {
+      background-color: #ededed;
+      transition: 0.5s;
+      border-radius: 5px;
+      font-weight: 900;
+      font-size: 20px;
+      color: #333;
+      opacity: 0;
+      z-index: -1;
+      cursor: pointer;
+      height: 40px;
+      float: right;
+      margin-right: 10px;
+      border: none;
+      margin-top: 10px;
+      outline: none;
+      position: relative;
+      width: 40px;
+    }
+
+    .toggle-btn:hover {
+      background-color: #ddd;
+    }
+
+    .toggle-btn:active {
+      background-color: #ddd;
+      border: 2px solid#2a6ba9;
+      color: #2a6ba9;
+    }
+
+    .sidebar.active {
+      left: -300px;
+    }
+
+    /* mobile */
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        left: -300;
+        height: 100%;
+        display: none;
+        background-color: #f1f1f1;
+      }
+
+      .dark-mode-switch.active {
+        position: fixed;
+        z-index: 3;
+      }
+
+      .sidebar.active {
+        left: 0%;
+        width: 100px;
+        display: block;
+        margin-right: 300px;
+        position: fixed;
+        background-color: #f1f1f1;
+      }
+
+      .FaQ {
+        position: absolute;
+      }
+
+      .toggle-btn {
+        Opacity: 1;
+        z-index: 100;
+      }
+
+      .sidebarcontent {
+        margin-left: 0;
+      }
+    }
+
+    header {
+      background-color: transparent;
+      height: 200px;
+      color: #333;
+      text-align: center;
+    }
+
+    .ZeivPad-logo {
+      max-width: 200px;
+      height: auto;
+      margin-top: 180px;
+      border-radius: 30%;
+    }
+     
+    .title {
+      margin: 20px 0 0 0;
+    }
+
+    .ZvP-logo {
+      height: 60px;
+      width: 60px;
+      z-index: 100;
+      position: absolute;
+      text-align: center;
+      border-radius: 50%;
+      background-color: transparent;
+      justify-content: center;
+    }
+    
+      .path {
+      clip-path: polygon(50% 40%, 100% 0, 100% 100%, 0 100%, 0 0);
+      background-color: #2a6ba9;
+      margin-top: 137px;
+      height: 100%;
+      width: 100%;
+  }
+  
+  .fa-laptop {
+       color: #2a6ba9;
+       font-size: 100px;
+  }
+    .edit {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .preview {
+      justify-content: center;      
+      text-align: center;
+      color: #2a6ba9;
+    }
+
+    .preview-box-html {
+      background-color: #2a6ba9;
+      border-radius: 10px;
+      justify-content: center;
+      margin: auto;
+      height: 150px;
+      width: 200px;
+      display: flex;
+    }
+
+    .preview-box-css {
+      background-color: #2a6ba9;
+      border-radius: 10px;
+      justify-content: center;
+      margin: auto;
+      height: 150px;
+      width: 200px;
+    }
+
+    .preview-box-Js {
+      background-color: #2a6ba9;
+      border-radius: 10px;
+      justify-content: center;
+      margin: auto;
+      height: 150px;
+      width: 200px;
+    }
+
+    .preview-flex {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+    }
+    
+    .btn {
+        color: #2a6ba9;
+        text-decoration: none;
+        font-weight: 900;
+    }
+    
+    .btn:hover {
+        color: white;
+    }
+
+    #editor,
+    #editor2,
+    #editor3 {
+      border-top: 35px solid #535353;
+      border-left: 7px solid #535353;
+      border-right: 7px solid #535353;
+      border-bottom: 7px solid #535353;
+      background-color: #ededed;
+      resize: none;
+      outline: none;
+      width: 160px;
+      font-size: 12px;
+      font-weight: 900;
+      color: #333;
+      height: 90px;
+      transition: 0.5s;
+      border-radius: 7px;
+    }
+
+    #editor {
+      margin: 8px 0 0 1px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    #editor2 {
+      margin: 10px 0 0 10px;
+      position: absolute;
+      z-index: 2;
+    }
+
+    #editor3 {
+      margin: 8px 0 0 12px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .place {
+      color: #2a6ba9;
+    }
+
+    .ZievPad-about {
+      color: #252525;
+      margin: 8%;
+      font-size: 17px;
+    }
+
+    .about {
+      margin: 400px 0 0 0;
+      text-align: center;
+    }
+
+    .svg-prp,
+    .svg-collumn {
+      margin-top: -100px;
+    }
+
+    .svg-bg {
+      background-color: #2a6ba9;
+      margin-top: -5px;
+      margin-bottom: -80px;
+    }
+
+    .svg-bg-purple {
+      background-color: #387bdf;
+      margin-bottom: -80px;
+    }
+
+    .svg-bg-collumn {
+      background-color: #4a96df;
+      border-radius: 0 0 33% 33%;
+    }
+
+    .svg-bg-purple,
+    .svg-bg-collumn {
+      margin-top: -5px;
+    }
+
+    .svg-bg,
+    .svg-bg-purple,
+    .svg-bg-collumn {
+      height: 600px;
+    }
+
+    .front-end-h1 {
+      margin-top: 0;
+      font-size: 35px;
+      color: #ededed;
+      text-align: center;
+
+    }
+
+    .front-end-h2 {
+      color: #ededed;
+      text-align: center;
+      margin: 0 10% 0 10%;
+    }
+
+    .front-end-btn-parent {
+      display: flex;
+      cursor: pointer; 
+      justify-content: center;
+      align-items: center;
+    }
+
+    .Front-end-button {
+      Background-color: #ededed;
+      border: none;
+      margin: 110px 0 0 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1270c9;
+      width: 180px;
+      height: 60px;
+      cursor: pointer;
+      border-radius: 50px 50px 50px 50px;
+      position: absolute;
+      transition: 0.2s ease-in;
+    }
+
+    .Front-end-button:hover {
+      background-color: #1270c9;
+      transition: 0.2s ease-in;
+      color: white;
+    }
+
+
+    @media only screen and (min-width: 768px) {
+      .ZvP-logo {
+        position: fixed;
+        z-index: 999;
+      }
+      
+      .ZeivPad-logo {
+          margin: 50px 0 0 -10px;
+      }
+      
+      .title {
+          margin: 0 0 0 300px;
+      }
+      
+      .path { 
+          height: 100%;
+          width: 75%;
+          rotate: 90deg;
+          position: absolute;
+          margin: -136px 0 0 -240px;
+      }
+      
+        .fa-laptop {
+            margin: 200px 0 0 0;
+        }
+      
+      .preview {
+          margin-top: 50px;
+      }
+      
+      .FaQ {
+        right: 375px;
+        z-index: 100;
+      }
+
+      header {
+        margin-left: 30px;
+        margin-top: 200px;
+        justify-content: left;
+        float: left;
+        align-items: left;
+        position: absolute;
+      }
+
+      .side {
+        margin-top: 300px;
+      }
+
+      .edit {
+        margin-left: 5px;
+        margin-top: 560px;
+        justify-content: none;
+        align-items: none;
+        position: absolute;
+      }
+
+      .place {
+        margin-top: 10px;
+      }
+      
+      hr {
+          margin: 340px 0 0 0;
+      }
+
+      svg {
+        margin-top: 325px;
+      }
+
+      .svg-prp,
+      .svg-collumn {
+        margin-top: -400px;
+      }
+
+      .ZievPad-about {
+        font-size: 24px;
+        color: #252525;
+        max-width: 80%;
+        position: absolute;
+        margin: 10px 30% 0 30%;
+        font-size: 17px;
+      }
+    }
+
+    .text-left {
+      text-align: left;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    /* FOOTER */
+    footer {
+      border-radius: 85% 85% 0 0 / 30%;
+      margin-bottom: 0px;
+      margin-top: 30px;
+      height: 400px;
+      background-color: #2a6ba9;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .footer-logo {
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      z-index: 100;
+      position: absolute;
+      text-align: center;
+      border-radius: 50%;
+      background-color: transparent;
+      transform: translate(-50%, -50%);
+    }
+
+    a {
+      position: relative;
+      color: white;
+    }
+
+    .company {
+      float: left;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      margin-left: 10px;
+    }
+
+    .more {
+      font-size: 20px;
+      font-weight: bold;
+      float: left;
+      color: white;
+      margin-top: -5px;
+      margin-left: 165px;
+    }
+
+    .liright {
+      float: left;
+      margin-left: 180px;
+      margin-top: 7px;
+      font-size: 15px;
+    }
+
+    .lileft {
+      margin-top: 7px;
+      float: left;
+      margin-left: 25px;
+      font-size: 15px;
+    }
+
+    .ulleft {
+      margin-left: -10px;
+      margin-bottom: -150px;
+      float: left;
+    }
+
+    .ulright {
+      float: left;
+      margin-top: -16px;
+    }
+
+    .copy {
+      margin-left: -17px;
+      margin-top: 320px;
+    }
+
+    @media (min-width: 573px) {
+      .ulright {
+        margin-top: 58px;
+      }
+    }
+
+    /* SWITCH*/
+    .dark-mode-switch {
+      margin: 15px 0 0 10px;
+      position: absolute;
+      float: right;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 6px;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: #2a6ba9;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(46px);
+      -ms-transform: translateX(46px);
+      transform: translateX(24px);
+    }
+
+    /* DARK MODE OPTION */
+    :root {
+      --bg-color-light: #dcdcdc;
+      --text-color-light: #dcdcdc;
+      --bg-color-dark: #252525;
+      --text-color-dark: #ffffff;
+      --ziev-color-dark: #3688d8;
+    }
+
+    body {
+      background-color: white;
+      color: var(--text-color-light);
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    Button {
+      background-color: var(--bg-color-light);
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    /* DARK MODE STUFF */
+    body.dark-mode {
+      background-color: var(--bg-color-dark);
+      color: var(--text-color-dark);
+    }
+
+    .dark-mode nav {
+      background-color: var(--bg-color-dark);
+      transition: background-color 0.5s;
+    }
+
+    .dark-mode .sidebar {
+      background-color: var(--bg-color-dark);
+      color: #E2DFD2;
+      transition: 0.5s;
+    }
+
+    .dark-mode h12 {
+      color: var(--ziev-color-dark);
+    }
+
+    .dark-mode .fa-question {
+      color: #E2DFD2;
+      transition: 0.5s;
+    }
+
+    .dark-mode .FaQ {
+      background-color: var(--bg-color-dark);
+      transition: 0.5s;
+    }
+
+    .dark-mode .FaQ:hover {
+      background-color: #333;
+    }
+
+    .dark-mode .fa-bars {
+      color: #E2DFD2;
+      transition: 0.5s;
+    }
+
+    .dark-mode .toggle-btn {
+      background-color: var(--bg-color-dark);
+      transition: 0.5s;
+    }
+
+    .dark-mode .toggle-btn:hover {
+      background-color: #333;
+    }
+
+    .dark-mode i {
+      color: var(--ziev-color-dark);
+    }
+
+    .dark-mode .place {
+      color: #3688d8;
+    }
+
+    .dark-mode h1 {
+      color: #E2DFD2;
+    }
+
+    .dark-mode h2 {
+      color: #E2DFD2;
+    }
+
+    .dark-mode h3 {
+      color: #E2DFD2;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <article>
+      <content class="container">
+        <img class="ZvP-logo" src="Zvp.jpeg" alt="ZvP"></img>
+        <aside class="sidebar">
+            <br><br><br>
+          <p class="sidebar-p"><a class="sidebar-note-btn" href="ZievPadHome.html">HOME</a></p>
+          <p class="sidebar-p"><a class="sidebar-note-btn" href="About-ZievPad.html">ABOUT</a></p>
+          <p id="privacy" class="sidebar-p"><a class="sidebar-note-btn" href="privacy-ZievPad.html">PRIVACY POLICY</a></p>
+          <div class="dark-mode-switch">
+            <label class="switch">
+              <input type="checkbox" onclick="toggleDarkMode()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </aside>
+        <content class="sidebarcontent">
+          <button class="toggle-btn" onclick="toggleSidebar()"><i class="fa fa-bars"></i></button>
+        </content>
+      </content>
+    </article>
+  </nav>
+  <nav class="navbar-marque">
+    <marquee behavior="scroll" direction="left"></marquee>
+    <a href="ZievPadFaQ.html"><button class="FaQ" title="FaQ"><i class="fa fa-question"></i></button></a>
+  </nav>
+  <header>
+    <img class="ZeivPad-logo" src="ZievP.jpeg" alt="ZvP"></img>
+    <h2 class="title">Platform to help the company's worker process</h2>
+    <div class="path">    
+</div>
+  </header>
+<br><br><br><br><br>
+  <article class="edit">
+  </article>
+  <article class="about">    
+    <i class="fa fa-laptop"></i> 
+    <h1 class="place">Great place to learn text editor, front end and other skills</h1>
+    <h1 class="ZievPad-about">ZievPad is an online website that provides various tools to help with your work, school assignments, or business.<br><br>We provide several tools that make it easy for you to create and edit documents. We also provide a front end text editor so you can create websites or other programs.<br><br>We will continue to improve the performance and popularity of our company by adding other tool features in the future.</h1>
+  </article>
+  <hr>
+  <article>
+    <h1 class="preview">Preview</h1>
+    <content class="preview-flex">
+      <div class="preview-box-html">
+        <textarea id="editor" onclick="toggleTextarea('editor')" readonly>
+  <head>
+    <title>ZvP</title>
+  </head>     
+      <body>         
+      </textarea>
+      </div>
+      <div class="preview-box-css">
+        <textarea id="editor3" onclick="toggleTextarea('editor3')" readonly>
+h1 {
+ color: blue;
+ font-family: arial;
+      </textarea>
+      </div>
+      <div class="preview-box-Js">
+        <textarea id="editor2" onclick="toggleTextarea('editor2')" readonly>
+function isEven(num) {
+return num % 2 === 0;
+}
+    </textarea>
+      </div>
+    </content>
+  </article>
+  <br><br><br><br>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#2a6ba9 " fill-opacity="1"      d="M0,256L60,224C120,192,240,128,360,106.7C480,85,600,107,720,144C840,181,960,235,1080,256C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+    </path>
+  </svg>
+  <article class="svg-bg">
+    <content><br><br>
+      <h1 class="front-end-h1">Front End</h1>
+      <h2 class="front-end-h2">You can use ZievPad code editor namely HTML CSS and JavaScript and run projects with a
+        wide variety of casual to
+        thrilling themes, you can also download your HTML files</h2>
+      <content class="front-end-btn-parent">
+        <button class="Front-end-button"><a href="ZievPad.html" class="btn">Front End Editor</a></button>
+      </content>
+    </content>
+  </article>
+  <svg class="svg-prp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#387bdf" fill-opacity="1"      d="M0,256L60,224C120,192,240,128,360,106.7C480,85,600,107,720,144C840,181,960,235,1080,256C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+    </path>
+  </svg>
+  <article class="svg-bg-purple">
+    <content><br><br>
+      <h1 class="front-end-h1">Document Editor</h1>
+      <h2 class="front-end-h2">Our document editor is a web that allows users to create, edit, format and manage text
+        documents online. Users can access it via any web browser, without needing to install any software.</h2>
+      <content class="front-end-btn-parent">
+                  <button class="Front-end-button"><a href="ZievPadTextEditor.html" class="btn">Document Editor</a></button>
+      </content>
+  </article>
+  <svg class="svg-collumn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#4a96df" fill-opacity="1"
+      d="M0,256L60,224C120,192,240,128,360,106.7C480,85,600,107,720,144C840,181,960,235,1080,256C1200,277,1320,267,1380,261.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+    </path>
+  </svg>
+  <article class="svg-bg-collumn">
+    <content><br><br>
+      <h1 class="front-end-h1">Data editor</h1>
+      <h2 class="front-end-h2">You can create data by inputting rows and columns according to the data you want to
+        create, this can help ease your work.
+        in terms of data management</h2>
+      <content class="front-end-btn-parent">
+                  <button class="Front-end-button"><a href="ZievPadCollumn.html" class="btn">Data Editor</a></button>
+      </content>
+  </article>
+
+  <footer><br><br><br>
+    <img class="footer-logo" src="Zvp.jpeg" alt="ZvP"></img>
+    <ul class="ulleft"><br><br>
+      <span class="company">Company</span><br>
+      <li class="lileft"><a href="About-ZievPad.html">About</a></li><br>
+      <li class="lileft">(soon)</li><br>
+      <li class="lileft">(soon)</li><br>
+      <li class="lileft"><a href="privacy-ZievPad.html">Privacy Policy</a></li><br>
+      <li class="lileft">(soon)</li><br>
+      <li class="lileft"><a href="ZievPadFaQ.html">FaQ</a></li><br>
+    </ul>
+    <ul class="ulright">
+      <span class="more">More</span><br>
+      <li class="liright"><a href="ZievPad.html">ZievPad Front End</a></li><br>
+      <li class="liright"><a href="ZievPadTextEditor.html">ZievPad Text Editor</a></li><br>
+      <li class="liright"><a href="ZievPadCollumn.html">ZievPad Collumn</a></li><br>
+      <li class="liright">ZievPad Canvas (soon)</li><br>
+      <li class="liright">ZievPad Video Editor (soon)</li><br>
+      <li class="liright">ZievPad Game (soon)</li><br>
+    </ul>
+    <h5 class="copy">© 2024 ZievPad | All Rights Reserved.</h5>
+  </footer>
+  <script>
+    function typeAndClearTextLoop(textareaId, text, typeInterval, clearInterval, pauseInterval) {
+      let i = 0;
+      let typing = true;
+      let timer;
+
+      function startTyping() {
+        if (i < text.length) {
+          document.getElementById(textareaId).value += text.charAt(i);
+          i++;
+        } else {
+          typing = false;
+          setTimeout(startDeleting, pauseInterval);
+        }
+      }
+
+      function startDeleting() {
+        if (i > 0) {
+          document.getElementById(textareaId).value = document.getElementById(textareaId).value.slice(0, -1);
+          i--;
+        } else {
+          typing = true;
+          setTimeout(startTyping, pauseInterval);
+        }
+      }
+
+      timer = setInterval(function () {
+        if (typing) {
+          startTyping();
+        } else {
+          startDeleting();
+        }
+      }, typing ? typeInterval : clearInterval);
+    }
+
+    typeAndClearTextLoop('editor', `   <h1>Hello</h1>
+    </body>
+</html> `, 160, 50, 2000);
+    typeAndClearTextLoop('editor2', `let number = 4;
+console.log(isEven(number)); `, 100, 50, 2000);
+    typeAndClearTextLoop('editor3', `font-size: 20px;
+ text - align: center;
+      padding: 10px;
+}`, 400, 50, 2000);
+
+
+    var isExpanded = {};
+    function toggleTextarea(textareaId) {
+      var textarea = document.getElementById(textareaId);
+      if (!isExpanded[textareaId]) {
+        textarea.style.height = "100px";
+        textarea.style.width = "50%";
+      } else {
+        textarea.style.height = "90px";
+        textarea.style.width = "160px";
+      }
+      isExpanded[textareaId] = !isExpanded[textareaId];
+      textarea.style.transition = "all 0.5s";
+    }
+    function toggleSidebar() {
+      var sidebar = document.querySelector(".sidebar");
+      if (sidebar.classList.contains("active")) {
+        sidebar.classList.remove("active");
+      } else {
+        sidebar.classList.add("active");
+      }
+    }
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      var buttons = document.querySelectorAll('.buttonzr');
+      buttons.forEach(button => {
+        button.classList.toggle('dark-mode');
+      });
+    }
+  </script>
+</body>
+
+</html>
