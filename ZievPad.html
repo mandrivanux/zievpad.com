@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZvP example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="Zvp.jpeg">
+    <link rel="stylesheet" type="text/css" href="Front.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <h1 class="welcome">Welcome to
+                <h12>ZievPad<h12>Front End
+            </h1>
+            <hr class="custom-hr">
+            <ul>
+                <li><button class="sidebar-note-btn"><a class="sidebar-note" href="ZievPadHome.html">HOME</a></button>
+                </li>
+            </ul>
+            <div class="dark-mode-switch">
+                <label class="switch">
+                    <input type="checkbox" onclick="toggleDarkMode()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        <aside class="sidebarcontent">
+            <button2 class="toggle-btn" onclick="toggleSidebar()">☰</button2>
+            <div id="property">
+                <h1 id="zvp"><i class="zv">ZievPad</i></h1>
+            </div>
+            <header>
+                <br><br><br>
+                <button class="snippet" id="snippetBtn" onclick="showSnippet()">snippet</button>
+                <button class="themes" id="themesBtn" onclick="showThemes()">themes</button>
+            </header>
+
+
+            <div id="snippetContent" class="content">
+                <div id="select-bg">
+                    <div id="toolbar">
+                        <button class="buttonzr" onclick="insertHtmlSnippet()">Front end snippet</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="themesContent" class="content">
+                <div id="select-bg">
+                    <div id="toolbar">
+                        <button class="buttonzr" onclick="toggleOriginalTheme()">Original Theme</button>
+                        <button class="buttonzr" onclick="toggleZievpadTheme()">ZievPad Theme</button>
+                        <button class="buttonzr" onclick="togglePixelTheme()">Pixel Theme</button>
+                        <button class="buttonzr" onclick="toggleHackerTheme()">Hacker Theme</button>
+                        <button class="buttonzr" onclick="toggleVioletTheme()">Violet Theme</button>
+                        <button class="buttonzr" onclick="toggleCircusTheme()">Circus Theme</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="margin">
+                <div class="dropdown">
+                </div>
+                <div class="marginbuttonzr">
+                </div> <br><br>
+
+                <div class="button-container">
+                    <button class="fa" id="fapojok" onclick="clearAll()">&#xf014;</button>
+                    <button class="fa" id="saveButton" onclick="saveText()">&#xf019;</button>
+                    <button class="fa" onclick="copyCode()">&#xf0c5;</button>
+                    <button class="fa" onclick="runCode()">&#xf04b;</button>
+                </div>
+
+                <div id="editor-container">
+                    <div id="lineNumbers"></div>
+                    <textarea id="editor" oninput="updateLineNumbers()"></textarea>
+                </div><br><br><br><br><br>
+                <div id="black-rectangle">
+                </div><br><br><br><br><br><br>
+                <div id="output">
+                    <iframe id="iframeOutput"></iframe>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <footer><br><br><br>
+                <img class="footer-logo" src="Zvp.jpeg" alt="ZvP"></img>
+                <ul class="ulleft"><br><br>
+                    <span class="company">Company</span><br>
+                    <li class="lileft"><a href="About-ZievPad.html">About</a></li><br>
+                    <li class="lileft">(soon)</li><br>
+                    <li class="lileft">(soon)</li><br>
+                    <li class="lileft"><a href="privacy-ZievPad.html">Privacy Policy</a></li><br>
+                    <li class="lileft">(soon)</li><br>
+                    <li class="lileft"><a href="ZievPadFaQ.html">FaQ</a></li><br>
+                </ul>
+                <ul class="ulright">
+                    <span class="more">More</span><br>
+                    <li class="liright"><a href="ZievPad.html">ZievPad Front End</a></li><br>
+                    <li class="liright"><a href="ZievPadTextEditor.html">ZievPad Text Editor</a></li><br>
+                    <li class="liright"><a href="ZievPadCollumn.html">ZievPad Collumn</a></li><br>
+                    <li class="liright">ZievPad Canvas (soon)</li><br>
+                    <li class="liright">ZievPad Video Editor (soon)</li><br>
+                    <li class="liright">ZievPad Game (soon)</li><br>
+                </ul>
+                <h5 class="copy">© 2024 ZievPad | All Rights Reserved.</h5>
+            </footer>
+            <script src="Front.js"></script>
+        </aside>
+    </div>
+
+</body>
+
+</html>
